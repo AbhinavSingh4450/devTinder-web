@@ -13,8 +13,9 @@ const Login = () => {
   
   const dispatch=useDispatch();
 
-  const [emailId, setEmailId]=useState("");
-  const [password, setPassword]=useState("");
+  const [emailId, setEmailId]=useState("Singh@gmail.com");
+  const [password, setPassword]=useState("Singh@123");
+  const [error, setError] = useState();
 
   const handleClick= async ()=>{
     try{
@@ -26,7 +27,7 @@ const Login = () => {
       return navigate('/');
     }
     catch(err){
-      console.log(err);
+      setError(err?.response?.data || "Something went wrong");
     }
 
   }
@@ -54,6 +55,7 @@ const Login = () => {
          onChange={(e)=>setPassword(e.target.value)}
          className="input input-bordered w-full max-w-xs" />
   </label>
+  <p className='text-red-500'> {error} </p>
     <div className="card-actions justify-center my-3">
       <button className="btn btn-primary"
               onClick={handleClick}>Login</button>
