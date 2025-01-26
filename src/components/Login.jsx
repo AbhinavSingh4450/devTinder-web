@@ -18,7 +18,7 @@ const Login = () => {
 
   const handleClick= async ()=>{
     try{
-      const res = await axios.post( BASE_URL + "/login",{
+      const res = await axios.post( "http://localhost:3000/login",{
         emailId,
         password
       },{withCredentials:true})
