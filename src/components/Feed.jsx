@@ -1,9 +1,38 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect } from 'react'
+import { BASE_URL } from '../utils/constants'
+import { use } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addFeed } from '../utils/feedSlice'
+import Card from './Card'
+
 
 const Feed = () => {
+  const dispatch = useDispatch();
+  const feed = useSelector((store)=>store.feed);
+ 
+  const getfeed = async()=>{
+    if(feed) return;
+    try {const res = await axios.get(
+       BASE_URL+"/feed",
+      {withCredentials:true}
+    )
+    console.log(res);
+    dispatch(addFeed(res?.data));
+  }
+
+    catch(err){
+      throw new Error("Something went wrong while loading the Feed");
+    }
+  } 
+
+  useEffect(()=>{
+    getfeed();
+  },[])
+
   return (
-    <div>
-      Feed
+   feed && <div className='my-6 flex justify-center'>
+     <Card user={feed[0]} />
     </div>
   )
 }
