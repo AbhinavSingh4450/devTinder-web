@@ -9,8 +9,6 @@ const Connections = () => {
 
      const dispatch=useDispatch(); 
      const connection = useSelector(state=>state.connection);
-     console.log(connection);
-    //  const{firstName, lastName } = connection[0];
 
      
 
