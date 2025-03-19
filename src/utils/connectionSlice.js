@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addFeed, removeFeed } from "./feedSlice";
 
 const connectionSlice=createSlice({
     name:'connections',
@@ -15,6 +14,5 @@ const connectionSlice=createSlice({
     }
 
 })
-
 export const{addConnection,removeConnection}=connectionSlice.actions;
 export default connectionSlice.reducer;

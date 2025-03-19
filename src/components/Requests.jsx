@@ -16,14 +16,11 @@ const Requests = () => {
             const res= await axios.post("http://localhost:3000" + "/request/review/" + status + '/' + _id, {}, {withCredentials:true});
         console.log(res);
         dispatch(removeRequest(_id))
-
         }
-
         catch(err){
             console.error(err);
 
         }
-        
     }
 
     const fetchRequests=async ()=>{
@@ -43,7 +40,7 @@ const Requests = () => {
     
 
     if(!requests) return;
-    if(requests.length===0)  return(<h1> No Requests</h1>);
+    if(requests.length===0)  return(<h1 className="flex flex-col justify-center items-center" > No Requests</h1>);
     return (
         <div className="flex flex-col justify-center items-center">
             <h1 className="text-3xl font-bold m-5"> Requests </h1>
