@@ -30,6 +30,8 @@ const Feed = () => {
     getfeed();
   },[])
 
+  if(!feed) return <div className='flex justify-center'>Loading...</div>
+  if(feed.length === 0) return <div className='flex justify-center mt-10'>No new users found!</div>
   return (
    feed && <div className='my-6 flex justify-center'>
      <Card user={feed[0]} />

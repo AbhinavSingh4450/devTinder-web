@@ -40,7 +40,7 @@ const Requests = () => {
     
 
     if(!requests) return;
-    if(requests.length===0)  return(<h1 className="flex flex-col justify-center items-center" > No Requests</h1>);
+    if(requests.length===0)  return(<h1 className="flex flex-col justify-center items-center font-bold text-3xl my-10" > No Requests</h1>);
     return (
         <div className="flex flex-col justify-center items-center">
             <h1 className="text-3xl font-bold m-5"> Requests </h1>

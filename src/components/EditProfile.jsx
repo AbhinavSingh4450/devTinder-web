@@ -13,10 +13,10 @@ const EditProfile = ({user}) => {
     const [error, setError]=useState();
     const [firstName, setFirstName]=useState(user.firstName);
     const [lastName, setlastName]=useState(user.lastName);
-    const [age, setAge]=useState(user.age);
+    const [age, setAge]=useState(user.age || "");
     const [photoUrl, setPhotoUrl]=useState(user.photoUrl);
-    const [gender, setGender]=useState(user.gender);
-    const [about, setAbout]=useState(user.about);
+    const [gender, setGender]=useState(user.gender || "");
+    const [about, setAbout]=useState(user.about|| "");
     const dispatch = useDispatch();
     const [showToast,setShowToast]=useState(false);
 
@@ -44,9 +44,6 @@ const EditProfile = ({user}) => {
        }
 
     }
-
-
-
 
   return (
 
